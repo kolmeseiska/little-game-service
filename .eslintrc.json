@@ -1,0 +1,139 @@
+{
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint",
+    "simple-import-sort",
+    "unused-imports",
+    "import-newlines"
+  ],
+  "root": true,
+  "rules": {
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "jsx-quotes": [
+      "error",
+      "prefer-single"
+    ],
+    "indent": [
+      "error",
+      2,
+      {
+        "SwitchCase": 1
+      }
+    ],
+    "no-multiple-empty-lines": [
+      "error",
+      {
+        "max": 1,
+        "maxEOF": 0
+      }
+    ],
+    "eol-last": "error",
+    "comma-spacing": "error",
+    "semi": [
+      "error",
+      "never"
+    ],
+    "object-curly-spacing": [
+      "error",
+      "always"
+    ],
+    "object-curly-newline": [
+      "error",
+      {
+        "consistent": true
+      }
+    ],
+    "simple-import-sort/exports": "error",
+    "simple-import-sort/imports": [
+      2,
+      {
+        "groups": [
+          [
+            "^react$",
+            "^react",
+            "^@?\\w"
+          ]
+        ]
+      }
+    ],
+    "sort-imports": 0, // import plugin needs this
+    "import/order": 0,
+    "import-newlines/enforce": [
+      "error",
+      {
+        "items": 4,
+        "max-len": 72,
+        "semi": false
+      }
+    ],
+    "@typescript-eslint/no-unused-vars": "off",
+    "unused-imports/no-unused-imports": "error",
+    "unused-imports/no-unused-vars": [
+      "warn",
+      {
+        "vars": "all",
+        "varsIgnorePattern": "^_",
+        "args": "after-used",
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-newline": [
+      "error",
+      {
+        "prevent": true,
+        "allowMultilines": false
+      }
+    ],
+    "react/jsx-first-prop-new-line": [
+      "error",
+      "multiline"
+    ],
+    "react/jsx-max-props-per-line": [
+      "error",
+      {
+        "maximum": 1,
+        "when": "multiline"
+      }
+    ],
+    "react/jsx-no-useless-fragment": "error",
+    "react/jsx-props-no-multi-spaces": "error",
+    "react/jsx-indent": [
+      "error",
+      2,
+      {
+        "checkAttributes": true
+      }
+    ],
+    "react/jsx-wrap-multilines": [
+      "error",
+      {
+        "declaration": "parens",
+        "assignment": "parens",
+        "return": "parens-new-line",
+        "arrow": "parens-new-line",
+        "condition": "parens-new-line",
+        "logical": "parens-new-line",
+        "prop": "parens-new-line"
+      }
+    ],
+    "react/jsx-tag-spacing": [
+      "error",
+      {
+        "closingSlash": "never",
+        "beforeSelfClosing": "always",
+        "afterOpening": "never",
+        "beforeClosing": "never"
+      }
+    ],
+    "react/jsx-closing-bracket-location": "error"
+  }
+}
