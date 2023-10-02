@@ -49,3 +49,13 @@ export function useMutateFirebaseRecord<T>(endpoint: FbEndpoint) {
     update(updateRef, updates)
   }, [endpoint])
 }
+
+export function useDeleteFirebaseCollection(endpoint: FbEndpoint) {
+  return React.useCallback(() => {
+    const updateRef = ref(database)
+    const updates = {
+      [`${endpoint}`]: null
+    }
+    update(updateRef, updates)
+  }, [endpoint])
+}
