@@ -4,7 +4,7 @@ type Props = {
   id?: string,
   headers: React.JSX.Element | React.JSX.Element[],
   rows: React.JSX.Element | React.JSX.Element[],
-  extras: React.JSX.Element | React.JSX.Element[],
+  extras?: React.JSX.Element | React.JSX.Element[],
   className?: string,
   size?: string[],
   variant?: 'simple' | 'striped' | 'unstyled'
