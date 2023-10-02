@@ -33,6 +33,21 @@ export function useFirebaseRecords<T>(endpoint: FbEndpoint) {
   }, [endpoint])
   return records
 }
+export function useFirebaseRecord<T>(endpoint: FbEndpoint) {
+  const [record, setRecord] = React.useState<T | null>(null)
+
+  React.useEffect(() => {
+    const recordRef = ref(database, endpoint)
+    onValue(recordRef, (snapshot) => {
+      const fbData: T = snapshot.val()
+      if (!fbData) {
+        return
+      }
+      setRecord(fbData)
+    })
+  }, [endpoint])
+  return record
+}
 
 export function useMutateFirebaseRecord<T>(endpoint: FbEndpoint) {
   return React.useCallback((record: T | null, id?: RecordId) => {
