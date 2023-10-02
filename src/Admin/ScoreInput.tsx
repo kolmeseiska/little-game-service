@@ -29,7 +29,6 @@ const ScoreInput = ({ score, disciplineId, teamId, updateData, isDeleteMode }: P
 
   const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value
-    console.log({ value })
     if(value != ''&& Number.isFinite(Number(value))) {
       setValue(Number(value))
     } else if (value === '') {

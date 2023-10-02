@@ -195,8 +195,6 @@ function AdminTable() {
 
   const onClickCreateTeam = () => createRecordHandler<Pick<Team, 'name'>>(newTeam, setNewTeam, mutateTeam)
   const onClickCreateDiscipline = () => createRecordHandler<Pick<Discipline, 'name'>>(newDiscipline, setNewDiscipline, mutateDiscipline)
-
-  console.log(teams)
   return (
     <div className='p-2'>
       <DataTable
