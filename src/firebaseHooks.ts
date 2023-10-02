@@ -17,6 +17,7 @@ export function useFirebaseRecords<T>(endpoint: FbEndpoint) {
     onValue(recordRef, (snapshot) => {
       const fbData: Record<RecordId, Omit<T, 'id'>> = snapshot.val()
       if (!fbData) {
+        setRecords([])
         return
       }
       const recordsData = Object.entries(fbData)
@@ -29,12 +30,11 @@ export function useFirebaseRecords<T>(endpoint: FbEndpoint) {
         }, [] as T[])
       setRecords(recordsData)
     })
-  }, [])
+  }, [endpoint])
   return records
 }
 
 export function useMutateFirebaseRecord<T>(endpoint: FbEndpoint) {
-  // TODO: imporove type
   return React.useCallback((record: T | null, id?: RecordId) => {
     if (!id) {
       const createRef = ref(database, endpoint)
@@ -47,5 +47,5 @@ export function useMutateFirebaseRecord<T>(endpoint: FbEndpoint) {
       [`${endpoint}/${id}`]: record
     }
     update(updateRef, updates)
-  }, [])
+  }, [endpoint])
 }
