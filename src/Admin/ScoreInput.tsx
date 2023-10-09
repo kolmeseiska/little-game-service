@@ -1,6 +1,11 @@
 import React from 'react'
-import { Input } from '@chakra-ui/react'
-
+import {
+  NumberDecrementStepper,
+  NumberIncrementStepper,
+  NumberInput,
+  NumberInputField,
+  NumberInputStepper,
+} from '@chakra-ui/react'
 type ScoreCell = { scoreId: RecordId, value: number }
 
 type Props = {
@@ -27,16 +32,15 @@ const ScoreInput = ({ score, disciplineId, teamId, updateData, isDeleteMode }: P
     setValue(score?.value || null)
   }, [score?.value])
 
-  const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value
-    if(value != ''&& Number.isFinite(Number(value))) {
+  const handleOnChange = (value: string) => {
+    if (value != '' && Number.isFinite(Number(value))) {
       setValue(Number(value))
     } else if (value === '') {
       setValue(null)
     }
   }
   return (
-    <Input
+    <NumberInput
       value={value ?? ''}
       onChange={handleOnChange}
       onBlur={onBlur}
@@ -46,7 +50,16 @@ const ScoreInput = ({ score, disciplineId, teamId, updateData, isDeleteMode }: P
       size='sm'
       isDisabled={isDeleteMode}
       borderColor={'gray.600'}
-    />
+    >
+      <NumberInputField />
+      <NumberInputStepper
+        display={{ base: 'none', md: 'flex' }}
+      >
+        <NumberIncrementStepper />
+        <NumberDecrementStepper />
+      </NumberInputStepper>
+    </NumberInput>
+
   )
 }
 
