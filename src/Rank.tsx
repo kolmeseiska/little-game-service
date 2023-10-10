@@ -11,15 +11,15 @@ type TextStyle = {
 }
 const textStyles: Record<number, TextStyle> = {
   1: {
-    fontSize: '2xl',
+    fontSize: '2em',
     color: '#fad643'
   },
   2: {
-    fontSize: 'xl',
+    fontSize: '1.5em',
     color: '#6c757d'
   },
   3: {
-    fontSize: 'lg',
+    fontSize: '1em',
     color: '#cd7f32'
   }
 }

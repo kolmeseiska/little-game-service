@@ -21,7 +21,7 @@ function App() {
             <Heading as='h2' size='2xl' mb={3}>
               {event.name}
             </Heading>
-            <Heading as='h3' size='xl' mb={10}>
+            <Heading as='h3' size='md' mb={3}>
               Tulospalvelu
             </Heading>
           </AppRouter>

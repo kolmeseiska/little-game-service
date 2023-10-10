@@ -10,7 +10,13 @@ type Props = {
   variant?: 'simple' | 'striped' | 'unstyled'
 }
 
-const DataTable = ({ id, headers, rows, extras, className, size = ['sm', 'md'], variant = 'simple' }: Props) => {
+const DataTable = ({ id,
+  headers,
+  rows,
+  extras,
+  className,
+  size = ['sm', 'lg'],
+  variant = 'simple' }: Props) => {
   return (
     <TableContainer id={id} overflowX='auto' className={className}>
       <Table variant={variant} size={size}>
